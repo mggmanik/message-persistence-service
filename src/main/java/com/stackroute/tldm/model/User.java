@@ -1,62 +1,71 @@
 package com.stackroute.tldm.model;
 
+import org.springframework.data.cassandra.core.mapping.CassandraType;
+import org.springframework.data.cassandra.core.mapping.UserDefinedType;
+
+import com.datastax.driver.core.DataType;
+
+@UserDefinedType("user")
 public class User {
 
-    private String userId;
-    private String userName;
-    private String userMail;
-    private String phoneNum;
+	@CassandraType(type = DataType.Name.TEXT)
 
-    public User() {
-    }
+	private String userId;
+	@CassandraType(type = DataType.Name.TEXT)
 
-    public User(String userId, String userName, String userMail, String phoneNum) {
-        this.userId = userId;
-        this.userName = userName;
-        this.userMail = userMail;
-        this.phoneNum = phoneNum;
-    }
+	private String userName;
+	@CassandraType(type = DataType.Name.TEXT)
 
-    public String getUserId() {
-        return userId;
-    }
+	private String userMail;
+	@CassandraType(type = DataType.Name.TEXT)
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+	private String phoneNum;
 
-    public String getUserName() {
-        return userName;
-    }
+	public User() {
+	}
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+	public User(String userId, String userName, String userMail, String phoneNum) {
+		this.userId = userId;
+		this.userName = userName;
+		this.userMail = userMail;
+		this.phoneNum = phoneNum;
+	}
 
-    public String getUserMail() {
-        return userMail;
-    }
+	public String getUserId() {
+		return userId;
+	}
 
-    public void setUserMail(String userMail) {
-        this.userMail = userMail;
-    }
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
-    public String getPhoneNum() {
-        return phoneNum;
-    }
+	public String getUserName() {
+		return userName;
+	}
 
-    public void setPhoneNum(String phoneNum) {
-        this.phoneNum = phoneNum;
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId='" + userId + '\'' +
-                ", userName='" + userName + '\'' +
-                ", userMail='" + userMail + '\'' +
-                ", phoneNum='" + phoneNum + '\'' +
-                '}';
-    }
+	public String getUserMail() {
+		return userMail;
+	}
+
+	public void setUserMail(String userMail) {
+		this.userMail = userMail;
+	}
+
+	public String getPhoneNum() {
+		return phoneNum;
+	}
+
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" + "userId='" + userId + '\'' + ", userName='" + userName + '\'' + ", userMail='" + userMail
+				+ '\'' + ", phoneNum='" + phoneNum + '\'' + '}';
+	}
 }
-
